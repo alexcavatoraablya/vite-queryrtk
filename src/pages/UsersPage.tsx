@@ -1,4 +1,6 @@
 import {useGetUsersQuery} from "../services/apiUsers.ts";
+import MyHeader from "../common/MyHeader";
+import MyLink from "../common/MyLink";
 
 const UsersPage = () => {
 
@@ -8,7 +10,8 @@ const UsersPage = () => {
 
     return (
         <>
-            <h1 className={"text-center"}>Список користувачів</h1>
+            <MyHeader text={"Список користувачів"} />
+            <MyLink text={"Перейти до створення"} to={"/posts/create"} />
         </>
     )
 }

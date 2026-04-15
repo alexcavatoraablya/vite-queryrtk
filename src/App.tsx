@@ -13,7 +13,7 @@ function App() {
         <Routes>
             <Route path="/">
                 <Route index element={<UsersPage/>} />
-                <Route path={"users"}>
+                <Route path={"posts"}>
                     <Route path={"create"} element={<CreatePostPage/>} />
                 </Route>
             </Route>
