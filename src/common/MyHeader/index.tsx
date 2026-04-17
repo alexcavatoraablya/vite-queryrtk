@@ -1,5 +1,5 @@
 interface MyHeaderProps {
-    text: string
+    text: string;
 }
 
 const MyHeader: React.FC<MyHeaderProps> = ({text}) => {
