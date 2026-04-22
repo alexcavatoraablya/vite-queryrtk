@@ -2,18 +2,28 @@ import MyHeader from "../common/MyHeader";
 import MyButton from "../common/MyButton";
 import MyInput from "../common/MyInput";
 import type {ICreatePost} from "../types/ICreatePost.ts";
-import {useFormik} from "formik";
+import {Formik, useFormik} from "formik";
+import {useCreatePostMutation} from "../services/apiPosts.ts";
 
 const CreatePostPage = () => {
+
+    const [ createPost ] = useCreatePostMutation();
     //post - спеціальний запит на сервер який призначений для зміни даних
     //у більшості випадків
-    const initValues:ICreatePost = {
+    const initValues: ICreatePost = {
         title: "",
         body: "",
         userId: 0
     }
-    const submitHandler = (values:ICreatePost) => {
-        console.log(values);
+    const submitHandler = async (values:ICreatePost) => {
+        try {
+            const result = await createPost(values).unwrap();
+            console.log("відправка запиту на сервер", result);
+        } catch(error) {
+            console.log("сталася проблема", error)
+        }
+
+        //console.log(values);
     }
 
     const formik = useFormik({
