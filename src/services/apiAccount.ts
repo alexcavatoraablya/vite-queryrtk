@@ -1,8 +1,7 @@
 import {createApi} from "@reduxjs/toolkit/query/react";
 import {createAWSQuery} from "../util/createAWSQuery.ts";
-import type {IPost} from "../types/IPost.ts";
-import type {ICreatePost} from "../types/ICreatePost.ts";
-//import type {IUser} from "../types/IUser.ts";
+import type {IRegister} from "../types/account/IRegister.ts";
+import type {IRegisterResponse} from "../types/account/IRegisterResponse.ts";
 
 //експортує юзерів в Redux
 export const apiAccount = createApi({
@@ -12,7 +11,7 @@ export const apiAccount = createApi({
         // getUsers: builder.query<IUser[], void>({
         //     query: () => '',
         // }),
-        register: builder.mutation<IPost, ICreatePost>({
+        register: builder.mutation<IRegisterResponse, IRegister>({
             query: (body) => ({
                 url: "register",
                 method: "POST",
