@@ -1,5 +1,5 @@
 import {createApi} from "@reduxjs/toolkit/query/react";
-import {createBaseQuery} from "../util/createBaseQuery.ts";
+import {createAWSQuery} from "../util/createAWSQuery.ts";
 import type {IPost} from "../types/IPost.ts";
 import type {ICreatePost} from "../types/ICreatePost.ts";
 //import type {IUser} from "../types/IUser.ts";
@@ -7,7 +7,7 @@ import type {ICreatePost} from "../types/ICreatePost.ts";
 //експортує юзерів в Redux
 export const apiPosts = createApi({
     reducerPath: 'posts',
-    baseQuery: createBaseQuery("posts"),
+    baseQuery: createAWSQuery("posts"),
     endpoints: (builder) => ({
         // getUsers: builder.query<IUser[], void>({
         //     query: () => '',
