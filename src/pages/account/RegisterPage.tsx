@@ -67,8 +67,8 @@ const RegisterPage = () => {
                     <MyInputImage label={"Фото користувача"}
                                      placeholder={"Вкажіть фото"}
                                      id={"ImageFile"}
-                                  height = {"auto"}
-                                  resizeMode= {"center"}
+                                  objectFit = {"contain"}
+                                  previewHeight = {"center"}
                                      onChange={handleChange}
                     />
 
