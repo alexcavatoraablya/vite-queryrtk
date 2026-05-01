@@ -5,18 +5,11 @@ interface MyInputProps {
     label: string;
     placeholder: string;
     id: string;
-    onChange: (value: string) => void;
+    onChange: (file: File | null, name: string) => void;
 }
 
 const MyInputPassword: React.FC<MyInputProps> = ({ label, placeholder, id, onChange }) => {
     const [showPassword, setShowPassword] = useState(false);
-    const [inputValue, setInputValue] = useState('');
-
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const value = e.target.value;
-        setInputValue(value);
-        onChange(value);
-    };
 
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword);
@@ -37,8 +30,7 @@ const MyInputPassword: React.FC<MyInputProps> = ({ label, placeholder, id, onCha
                     id={id}
                     name={id}
                     placeholder={placeholder}
-                    value={inputValue}
-                    onChange={handleChange}
+                    onChange={onChange}
                     className="w-full px-4 py-3 pr-12 bg-white dark:bg-slate-900 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 focus:border-transparent transition-all duration-200 shadow-sm dark:shadow-lg"
                 />
 

@@ -27,12 +27,13 @@ const MyInputImage: React.FC<MyInputImageProps> = ({
 
     const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const file = e.target.files?.[0];
+        //console.log("select file", e.target.files);
         if (file) {
-            processFile(file);
+            processFile(file, e.target.name);
         }
     };
 
-    const processFile = (file: File) => {
+    const processFile = (file: File, inputName: string) => {
         // Validate file type
         if (!acceptedFormats.includes(file.type)) {
             alert('Будь ласка, виберіть зображення у форматі JPG, PNG, GIF або WebP');
@@ -47,7 +48,7 @@ const MyInputImage: React.FC<MyInputImageProps> = ({
         reader.onload = (e) => {
             const preview = e.target?.result as string;
             setPreviewUrl(preview);
-            onChange(file, preview);
+            onChange(file, inputName); //повідомляє через callback
         };
         reader.readAsDataURL(file);
     };

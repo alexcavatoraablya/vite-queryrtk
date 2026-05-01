@@ -6,7 +6,7 @@ import type {IRegisterResponse} from "../types/account/IRegisterResponse.ts";
 //експортує юзерів в Redux
 export const apiAccount = createApi({
     reducerPath: 'account',
-    baseQuery: createAWSQuery("account"),
+    baseQuery: createAWSQuery("api/account"),
     endpoints: (builder) => ({
         // getUsers: builder.query<IUser[], void>({
         //     query: () => '',
